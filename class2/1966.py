@@ -26,4 +26,5 @@ for i in range(t):
                 document.popleft()
                 cnt +=1
                 m -= 1
-print(result)
+for i in result:
+    print(i)
