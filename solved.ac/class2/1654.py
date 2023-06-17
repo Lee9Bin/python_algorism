@@ -6,7 +6,7 @@ for i in range(k):
 
 lan.sort()
 
-fisrt = 0
+fisrt = 1
 last = lan[-1]
 result = 0
 while fisrt <= last:
