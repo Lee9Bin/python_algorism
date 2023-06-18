@@ -13,11 +13,15 @@ for i in nlist:
     while num <= i:
         stack.append(num)
         ans.append('+')
-        num += 1
+        num +=1
     if stack[-1] == i:
         stack.pop()
         ans.append('-')
     else:
         ans = 'NO'
         break
-print(ans)
+if ans == 'NO':
+    print('NO')
+else:
+    for i in ans:
+        print(i)
