@@ -17,6 +17,6 @@ for i in dic:
         ans +=1
         result.append(i)
 print(ans)
-
+result.sort()
 for i in result:
     print(i)
