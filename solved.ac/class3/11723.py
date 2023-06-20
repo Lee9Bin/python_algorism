@@ -5,6 +5,7 @@ All = []
 for i in range(1,21):
     All.append(i)
 emty = []
+
 for i in range(m):
     command = list(map(str, sys.stdin.readline().split()))
     if command[0] == "add":
