@@ -4,6 +4,7 @@ n, m = map(int, sys.stdin.readline().split())
 
 dic1 = {}
 dic2 = {}
+
 for i in range(n):
     monster = sys.stdin.readline().rstrip()
     dic1[monster] = i+1
