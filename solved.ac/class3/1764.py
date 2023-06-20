@@ -8,7 +8,7 @@ for i in range(n+m):
         dic[human] = 1
     else:
         dic[human] += 1
-
+ 
 result = []
 ans = 0
 for i in dic:
