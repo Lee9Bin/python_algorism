@@ -10,15 +10,11 @@ for i in range(t):
             wear[b] = 1
         else:
             wear[b] +=1
-    cnt = []
+
+# 의상중에서 안입는 경우의수1 +(의상개수)를 곱하고 하나도 선택안하는 경우 -1
+    result = 1
     for k in wear:
-        cnt.append(wear.get(k))
-    result = 0
+        result *= wear.get(k)+1
+    result -=1
     
-    for l in range(len(cnt)):
-        now = cnt[l]
-        for m in range(l+1,len(cnt)):
-            now *= 2**cnt[m]
-        result += now
-        
     print(result)
