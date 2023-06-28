@@ -1,5 +1,4 @@
 import sys
-
 n, m = map(int, sys.stdin.readline().split())
 tree = list(map(int, sys.stdin.readline().split()))
 tree.sort()
@@ -7,6 +6,7 @@ tree.sort()
 start = 0
 end = tree[-1]
 ans = 0
+
 while start<=end:
     result = 0
     mid = (start+end)//2
