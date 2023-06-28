@@ -4,7 +4,7 @@ n, m = map(int, sys.stdin.readline().split())
 tree = list(map(int, sys.stdin.readline().split()))
 tree.sort()
 
-start = tree[0]
+start = 0
 end = tree[-1]
 ans = 0
 while start<=end:
