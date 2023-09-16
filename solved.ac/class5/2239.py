@@ -1,50 +1,46 @@
 import sys
-sdoqu = [[] for i in range(9)]
+sdoqu = []
 zero = []
 for i in range(9):
-    nlist = sys.stdin.readline().strip()
-    for k in nlist:
-        sdoqu[i].append(int(k))
+    sdoqu.append(list(map(str,sys.stdin.readline().strip())))
 
 for i in range(9):
     for j in range(9):
-        if sdoqu[i][j] == 0:
+        if sdoqu[i][j] == '0':
             zero.append((i,j))
 
-def check(x,y):
-    poss = [1,2,3,4,5,6,7,8,9]
+def check(x,y,k):
 
     #행  
     for i in range(9):
-        try:
-            poss.remove(sdoqu[x][i])
-        except:
-            continue
+        if sdoqu[x][i] == k:
+            return False
     
+    # 열
     for i in range(9):
-        try:
-            poss.remove(sdoqu[i][y])
-        except:
-            continue
+        if sdoqu[i][y] == k:
+            return False
     
+    # 격자
     for i in range(x//3*3,x//3*3+3):
         for j in range(y//3*3,y//3*3+3):
-            try:
-                poss.remove(sdoqu[i][j])
-            except:
-                continue
-    return poss
+            if sdoqu[i][j] == k:
+                return False
+    return True
 
-def back():
+def back(depth):
+    if depth == len(zero):
+        for k in range(9):
+            print(''.join(sdoqu[k]))
+        exit(0)
+    
+    for i in range(1,10):
+        x = zero[depth][0]
+        y = zero[depth][1]
+        
+        if check(x,y,str(i)):
+            sdoqu[x][y] = str(i)
+            back(depth + 1)
+            sdoqu[x][y] = 0
 
-for a,b in zero:
-    possible = check(a,b)
-    for i in possible:
-        sdoqu[i][j] = i
-        back()
-        sdoqu[i][j] = 0
-
-
-# 0인 부분을 찾는다.
-# 각 행 각 열 각 행정구역을 판단한 가능한 숫자를 뽑아낸다.
-# 뽑은 리스트틀 가지고 백트래킹을 진행한다.
+back(0)
