@@ -21,7 +21,8 @@ cycle = False
 result = 0
 for i in range(m):
     a, b = map(int,sys.stdin.readline().split())
-    if cycle == False and parent[a] == parent[b]:
+    # if cycle == False and parent[a] == parent[b]:
+    if cycle == False and find_parent(parent, a) == find_parent(parent, b):
         result = i+1
         cycle = True
     union_parent(parent,a,b)
